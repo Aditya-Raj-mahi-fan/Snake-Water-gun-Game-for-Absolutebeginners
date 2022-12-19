@@ -1,0 +1,26 @@
+let chance = true
+let p1 = 0//points for the player1
+let p2 = 0//points for the pc
+while (chance) {
+  let my_chance = prompt("Enter S for Snake,W for water and G for Gun")
+  let cpuI = Math.floor(Math.random() * 3);
+  let pc_chance = ["S", "W", "G"][cpuI]
+  console.log(`PC has got ${pc_chance}`)
+  if (my_chance == 'S' && pc_chance == 'W')
+    ++p1
+  else if (my_chance == 'S' && pc_chance == 'G')
+    ++p2
+  else if (my_chance == 'W' && pc_chance == 'S')
+    ++p2
+  else if (my_chance == 'W' && pc_chance == 'G')
+    ++p1
+  else if (my_chance == 'G' && pc_chance == 'S')
+    ++p1
+  else if (my_chance == 'G' && pc_chance == 'W')
+    ++p2
+  chance = confirm("Wanna play again")
+}
+if (p1 > p2)
+  console.log(`WINNER is Player1 as his/her points are ${p1}`)
+else
+  console.log(`WINNER is PC as its points are ${p2}`)
